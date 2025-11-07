@@ -617,7 +617,7 @@ def get_architecture(n_cf_classes_list,n_emotion_classes):
     arch['shared']=ARCHITECTURES['shared']
     arch.update(ARCHITECTURES[n_coarse])
     if n_coarse == 6 and n_emotion_classes == 7:
-        arch.pop(['fine_1'])
+        arch.pop('fine_1')
     for idx, n_class in enumerate(n_cf_classes_list):
         if idx == 0:
             arch['coarse'].append({'type':DENSE,'in_ch': 64,'out_ch':n_class})
@@ -634,4 +634,5 @@ def get_architecture(n_cf_classes_list,n_emotion_classes):
             torch_arch[sub_module]=get_sub_module(arch[sub_module])
                 
     return torch_arch
+
 
