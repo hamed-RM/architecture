@@ -27,6 +27,7 @@ ARCHITECTURES={
                 {'type':CONV_BLOCK,'in_ch': 32, 'out_ch': 32,'kernel_size': 1,'stride': 1,'drop_rate': 0.1}, 
                 ]
             ],
+    7:{
     2:{
         'coarse': [
             {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
@@ -49,6 +50,253 @@ ARCHITECTURES={
             {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
 
             {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':ADP_AVG_POOL,'out_shape': (1,1)},
+            {'type':FLT},  
+        ],
+        'fine_1': [
+            {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
+
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':ADP_AVG_POOL,'out_shape': (1,1)},
+            {'type':FLT}, 
+        ],
+    },
+    3:{
+        'coarse': [
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':ADP_AVG_POOL,'out_shape': (1,1)},
+            {'type':FLT},      
+        ],
+
+        'fine_0': [
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':ADP_AVG_POOL,'out_shape': (1,1)},
+            {'type':FLT},  
+        ],
+        'fine_1': [
+            {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
+
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':ADP_AVG_POOL,'out_shape': (1,1)},
+            {'type':FLT}, 
+        ],
+        'fine_2': [
+            {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
+
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':ADP_AVG_POOL,'out_shape': (1,1)},
+            {'type':FLT}, 
+        ],
+    },
+    4:{
+        'coarse': [
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':ADP_AVG_POOL,'out_shape': (1,1)},
+            {'type':FLT},      
+        ],
+
+        'fine_0': [
+            {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
+
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':ADP_AVG_POOL,'out_shape': (1,1)},
+            {'type':FLT},  
+        ],
+        'fine_1': [
+            {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
+
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':ADP_AVG_POOL,'out_shape': (1,1)},
+            {'type':FLT}, 
+        ],
+        'fine_2': [
+            {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
+
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':ADP_AVG_POOL,'out_shape': (1,1)},
+            {'type':FLT}, 
+        ],
+    },
+    5:{
+        'coarse': [
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':ADP_AVG_POOL,'out_shape': (1,1)},
+            {'type':FLT},      
+        ],
+
+        'fine_0': [
+            {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
+
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':ADP_AVG_POOL,'out_shape': (1,1)},
+            {'type':FLT},  
+        ],
+        'fine_1': [
+            {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
+
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':ADP_AVG_POOL,'out_shape': (1,1)},
+            {'type':FLT}, 
+        ],
+    },
+    6:{
+        'coarse': [
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':ADP_AVG_POOL,'out_shape': (1,1)},
+            {'type':FLT},      
+        ],
+
+        'fine_0': [
+            {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
+
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':ADP_AVG_POOL,'out_shape': (1,1)},
+            {'type':FLT},  
+        ],
+
+    },
+    },
+    8:{
+    2:{
+        'coarse': [
+            {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
+
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
+            {'type':ADP_AVG_POOL,'out_shape': (1,1)},
+            {'type':FLT},      
+        ],
+
+        'fine_0': [
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+
             {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
             {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
             {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
@@ -116,7 +364,6 @@ ARCHITECTURES={
             {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
 
             {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
-            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
 
             {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
 
@@ -130,7 +377,6 @@ ARCHITECTURES={
         'fine_2': [
             {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
 
-            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
             {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
 
             {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
@@ -164,11 +410,9 @@ ARCHITECTURES={
             {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
 
             {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
-            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
 
             {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
 
-            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
             {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
             {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
 
@@ -184,7 +428,6 @@ ARCHITECTURES={
 
             {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
             {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
-            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
 
             {'type':ADP_AVG_POOL,'out_shape': (1,1)},
             {'type':FLT}, 
@@ -192,7 +435,6 @@ ARCHITECTURES={
         'fine_2': [
             {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
 
-            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
             {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
 
             {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
@@ -212,6 +454,8 @@ ARCHITECTURES={
             {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
             {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
             {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
 
             {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
 
@@ -226,7 +470,6 @@ ARCHITECTURES={
         'fine_0': [
             {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
 
-            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
             {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
 
             {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
@@ -245,8 +488,6 @@ ARCHITECTURES={
 
             {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
 
-            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
-            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
             {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
 
             {'type':ADP_AVG_POOL,'out_shape': (1,1)},
@@ -275,7 +516,6 @@ ARCHITECTURES={
             {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
 
             {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
-            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
 
             {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
 
@@ -289,7 +529,6 @@ ARCHITECTURES={
         'fine_1': [
             {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
 
-            {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
             {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
 
             {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
@@ -338,8 +577,7 @@ ARCHITECTURES={
         ],
 
     },
-
-    
+    }
 }
 N_EMOTION_CLASSES___COARSE_FINE_EMOTION_MAPPER_DICT={
     7:{
@@ -615,9 +853,8 @@ def get_architecture(n_cf_classes_list,n_emotion_classes):
     n_coarse=n_cf_classes_list[0]
     arch={}
     arch['shared']=ARCHITECTURES['shared']
-    arch.update(ARCHITECTURES[n_coarse])
-    if n_coarse == 6 and n_emotion_classes == 7:
-        arch.pop('fine_1')
+    arch.update(ARCHITECTURES[n_emotion_classes][n_coarse])
+
     for idx, n_class in enumerate(n_cf_classes_list):
         if idx == 0:
             arch['coarse'].append({'type':DENSE,'in_ch': 64,'out_ch':n_class})
