@@ -69,6 +69,8 @@ ARCHITECTURES={
             {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
 
             {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+            {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
+
 
             {'type':ADP_AVG_POOL,'out_shape': (1,1)},
             {'type':FLT}, 
@@ -115,7 +117,7 @@ ARCHITECTURES={
 
             {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
 
-            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
+            {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
 
             {'type':CONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
 
