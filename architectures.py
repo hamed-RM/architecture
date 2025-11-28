@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.nn.init as init
 from torch import Tensor
 import torch.nn.functional as F
+import copy
 
 CONV_BLOCK='convblock'
 DECONV_BLOCK='deconvblock'
@@ -848,7 +849,8 @@ def get_architecture(n_cf_classes_list,n_emotion_classes):
     n_coarse=n_cf_classes_list[0]
     arch={}
     arch['shared']=ARCHITECTURES['shared']
-    arch.update(ARCHITECTURES[n_emotion_classes][n_coarse])
+    for key, value in ARCHITECTURES[n_emotion_classes][n_coarse].items():
+        arch[key] = copy.deepcopy(value)
 
     for idx, n_class in enumerate(n_cf_classes_list):
         if idx == 0:
@@ -866,5 +868,6 @@ def get_architecture(n_cf_classes_list,n_emotion_classes):
             torch_arch[sub_module]=get_sub_module(arch[sub_module])
                 
     return torch_arch
+
 
 
