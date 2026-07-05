@@ -540,7 +540,7 @@ ARCHITECTURES={
     },
     7:{
         'coarse': [
-            {'type':MAX_POOL,'kernel_size': 3,'stride': 3},
+            {'type':MAX_POOL,'kernel_size': 2,'stride': 2},
 
             {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
             {'type':DECONV_BLOCK,'in_ch': 64, 'out_ch': 64,'kernel_size': 3,'stride': 1,'drop_rate': 0.1},
